@@ -1,0 +1,8 @@
+<div class="tweet_listing">
+  <%@tweets.each do |t|%>
+      <p><%= link_to "#{t.user.name} #{t.user.surname}", user_path(t.user) %></p>
+      <p><%=t.text%></p>
+      <p><%=t.created_at%></p>
+  <%end%>
+
+</div>
