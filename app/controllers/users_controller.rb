@@ -30,6 +30,12 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    @user=User.find(params[:id])
+    @user.destroy
+    redirect_to(@user)
+  end
   private
   def strong_params
     params.require(:user).permit(:name,:surname,:email,:bio)

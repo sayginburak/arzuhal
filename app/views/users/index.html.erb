@@ -1,8 +1,8 @@
 
 <%= link_to "Add New User", new_user_path %><br>
 <%@users.each do |u|%>
-    <%=u.name%>
-    <%=u.surname%><br>
+    <p><%= link_to "#{u.name} #{u.surname}", user_path(u) %></p>
+
     <%= link_to "Edit", edit_user_path(u) %>
     <%= link_to 'Destroy', user_path(u),
                 method: :delete, data: { confirm: 'Are you sure?' } %><br>

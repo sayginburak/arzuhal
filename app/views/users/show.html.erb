@@ -18,9 +18,15 @@
 <% end %>
 
 <h2>User tweets</h2>
+count: <%=@user.tweets.count%>
 <%@user.tweets.each do |t|%>
     <p><%= link_to "#{t.user.name} #{t.user.surname}", user_path(t.user) %></p>
+
     <p><%=t.text%></p>
     <p><%=t.created_at%></p>
-<%end%>
+    <%= link_to 'Destroy', [@user, t],
+                method: :delete, data: { confirm: 'Are you sure?' } %><hr>
+
+    <%end%><br>
 <%=link_to "<<Back to home", root_path%>
+<hr>
