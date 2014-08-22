@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Microblog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container-fluid
+    %a.navbar-brand{:href => "http://localhost:3000"} Arzuhal
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to 'Home', root_path
+        %li
+          = link_to 'User Management', users_path
+  / /.navbar-collapse
+  / /.container-fluid
+= yield

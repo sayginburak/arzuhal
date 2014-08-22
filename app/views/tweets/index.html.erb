@@ -1,9 +1,0 @@
-<div class="tweet_listing">
-  <%@tweets.each do |t|%>
-      <p><%= link_to "#{t.user.name} #{t.user.surname}", user_path(t.user) %></p>
-      <p><%=t.text%></p>
-      <p><%= link_to t.created_at.strftime("%d/%m/%Y"+" "+"%_H:%M"), [t.user,t] %></p><hr>
-
-  <%end%>
-
-</div>

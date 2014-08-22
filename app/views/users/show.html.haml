@@ -1,0 +1,31 @@
+= render "layouts/errors", object: @tweet, as: :object
+= @user.name
+= @user.surname
+%br/
+= @user.email
+%br/
+%strong Join Date:
+= @user.created_at
+%br/
+= link_to 'Destroy', user_path(@user),                |
+  method: :delete, data: { confirm: 'Are you sure?' } |
+%h4 Bio:
+= @user.bio
+%h2 Add new tweet this user
+= form_for([@user, @tweet]) do |f|
+  %p
+    = f.label :text
+    %br/
+    = f.text_field :text
+  = f.submit
+%h2 User tweets
+- @user.tweets.order(created_at: :desc).each do |t|
+  %p= link_to "#{t.user.name} #{t.user.surname}", user_path(t.user)
+  %p= t.text
+  %p= t.created_at
+  = link_to 'Destroy', [@user, t],                      |
+    method: :delete, data: { confirm: 'Are you sure?' } |
+  %hr/
+%br/
+= link_to "<<Back to home", root_path
+%hr/

@@ -1,4 +1,0 @@
-<p><%= link_to "#{@tweet.user.name} #{@tweet.user.surname}", user_path(@tweet.user) %></p>
-<p><%=@tweet.text%></p>
-<p><%= link_to @tweet.created_at.strftime("%d/%m/%Y"+" "+"%_H:%M"), [@tweet.user,@tweet] %></p>
-<%=link_to "<<Back to home", root_path%>
