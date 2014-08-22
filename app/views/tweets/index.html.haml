@@ -1,0 +1,8 @@
+.table
+  .tweet_listing
+  - @tweets.each do |t|
+    %p= link_to "#{t.user.name} #{t.user.surname}", user_path(t.user)
+    %p= t.text
+    %p= link_to t.created_at.strftime("%d/%m/%Y"+" "+"%_H:%M"), [t.user,t]
+    %hr/
+  = will_paginate @posts, renderer: BootstrapPagination::Rails
